@@ -1,7 +1,8 @@
 public class CreditPaymentService {
-    public double calculate(long amount, int number_of_months, double percent){
-        double interest_rate = percent/1200;
-        double result = (long)(amount*(interest_rate+interest_rate/(Math.pow(1+interest_rate, number_of_months)-1)));
+    public double calculate(long amount, int numberOfMonths, double percent) {
+        double interestRate = percent / 1200;
+        double denominator = (Math.pow(1 + interestRate, numberOfMonths) - 1);
+        double result = (long) (amount * (interestRate + interestRate / denominator));
         return result;
     }
 }
